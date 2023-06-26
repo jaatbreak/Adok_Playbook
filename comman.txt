@@ -1,0 +1,33 @@
+  179  systemctl status apache2
+  180  cd /etc/apach2
+  181  cd /etc/ap
+  182  cd /etc/apache2/
+  183  ls
+  184  cd sites-available/
+  185  ls
+  186  cd ..
+  187  ls
+  188  curl localhost
+  189  apachectl configtest
+  190  cd
+  191  cd /var/www/
+  192  ls
+  193  rm -rf web/
+  194  cd
+  195  cd /etc/apache2/
+  196  ls
+  197  cd sites-available/
+  198  ls
+  199  rm web.conf 
+  200  ls
+  201  cd
+  202  cd /var/www/example.com/
+  203  ls
+  204  cd
+  205  vim /etc/hosts
+  206  sudo a2ensite example.com.conf
+  207  sudo a2dissite 000-default.conf
+  208  sudo systemctl restart apache2
+  209  sudo apache2ctl configtest
+  210  sudo systemctl restart apache2
+  211  history
