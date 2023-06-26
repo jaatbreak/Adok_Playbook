@@ -1,0 +1,60 @@
+- name: Multiple Tasks Doing In Single File 
+  hosts: web
+  tasks:
+   - name: Using the copy module
+     copy:
+       src: error.xml
+       dest: /root
+   - name: usign the command module
+     command: 'ls'
+   - name: using the raw module 
+     raw: 'cat /etc/passwd ; cal'
+   - name: using the shell module
+     shell: '/root/h2.sh'
+   - name: Using the file module
+     file:
+       path: /root/ansible_cal
+       state: directory
+   - name: Using the fetch module
+     fetch:
+       src: /root/h2.sh
+       dest: /root/data_playbook
+   - name: Using the get_url Module
+     get_url:
+        url: 'https://www.free-css.com/assets/files/free-css-templates/download/page293/dgital.zip'
+        dest: /root/data_playbook
+   - name: Using Lineinfile Module
+     lineinfile:
+       path: /root/passfile
+       line: 'HELLO WELCOME TO THE ANSIBLE WORLD'
+       state: present
+   - name: Using the replace Module
+     replace:
+       path: /root/passfile
+       regexp: 'prakash:x:1203:1342::home:bin/bash'
+       replace: 'This Line is come when the prakash user remove from passwd file'
+   - name: Using the User Module
+     user:
+       name: shyam
+       state: present
+   - name: Using The Group Module
+     group:
+       name: testing_team
+       state: present
+   - name: Using the APT Module
+     apt:
+       name: apache2
+       state: present
+   - name: Using the Service Module
+     service:
+       name: apache2
+       state: started
+   - name: using the Stat Module
+     stat:
+       path: /root/passfile
+   - name: Using the Setup Module
+     setup:
+       filter: '*version*'
+   - name: Using URI To check Website is Live 
+     uri:
+       url: 'http://www.jaatbreak.cu.ma'
