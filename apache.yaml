@@ -1,0 +1,29 @@
+- name: Confuguring the Apache webserver 
+  hosts: web
+  tasks:
+   - name: Installing the apache webserver 
+     apt:
+      name: apache2
+      state: present
+   - name: controlling the service 
+     service:
+       name: apache2
+       state: started
+       enabled: true
+   - name: Adding the firewall rule for apache webserver
+     firewalld:
+       port: 80/tcp
+       permanent: true
+       state: enabled
+   - name: Reload firewall Configuration
+     service:
+       name: firewalld
+       state: reloaded
+   - name: Copying the index file to the document root
+     copy:
+       src: index.html
+       dest: /var/www/html
+   - name: Restarted the apache service
+     service:
+       name: apache2
+       state: restarted
